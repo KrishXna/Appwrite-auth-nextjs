@@ -1,6 +1,6 @@
 "use client"
 import React,{useState} from 'react'
-import { account } from '../../../appwrite auth/Appwrite/appwriteConfig'
+import { account } from '../../Appwrite/appwriteConfig'
 import Link from 'next/link'
 
 const Signup = () => {
