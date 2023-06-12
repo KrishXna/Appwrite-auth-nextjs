@@ -1,7 +1,8 @@
 "use client"
-import { account } from "@/Appwrite/appwriteConfig";
+import { account } from "../../Appwrite/appwriteConfig";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+
 const Profile = () => {
     const [user, setUser] = useState(null);
 

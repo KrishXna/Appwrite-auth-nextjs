@@ -1,19 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import { account } from "../../Appwrite/appwriteConfig";
 
 const Navbar = () => {
-
-    const handleLogout = async () => {
-        try {
-            const res = await account.deleteSession('current');
-            if (res) {
-                console.log("Logout Success");
-            }
-        } catch (error) {
-            console.log(error);
-        }
-    };
 
     return (
         <div className="w-full h-16 bg-[#2c2c54] text-[#fff] px-6">

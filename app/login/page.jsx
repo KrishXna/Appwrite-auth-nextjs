@@ -21,7 +21,10 @@ const Login = () => {
 
   const loginWithGoogle = async () => {
     try {
-      const res = await account.createOAuth2Session("google");
+      const res = await account.createOAuth2Session(
+        "google",
+        "http://localhost:3000",
+        "http://localhost:3000/login");
       console.log(res);
     } catch (error) {
       console.log(error);
