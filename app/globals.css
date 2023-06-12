@@ -3,5 +3,10 @@
 @tailwind utilities;
 
 body{
-    background: #2c2c54;
+    /* background:linear-gradient(to right, #6d28d9, #db2777); */
+    background: #fff;
 }
+
+/* box-gray *
+/* font-helvetica -heading*/
+/* font- Poppins -para-*/

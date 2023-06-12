@@ -18,7 +18,7 @@ const Signup = () => {
         user.name
       )
       setUser("")
-      // alert("Account Created Successfully")
+      alert("Account Created Successfully")
       window.location.href="/login"
         console.log(res);
     } catch (error) {
@@ -27,33 +27,23 @@ const Signup = () => {
 
   }
   return (
-    <div className='flex justify-center py-10'>
-      <div className="shadow-md p-16 max-w-xl bg-[#40407a] rounded-xl">
-        <h1 className='text-2xl text-white text-center mb-10'>Create Account</h1>
-        <div className="flex justify-between m-4">
-          <label htmlFor="name" className='mr-2 font-semibold text-xl text-[#fff]'>Name</label>
-          <input type="text" id='name' value={user.name} onChange={(e) => setUser({ ...user, name: e.target.value })} placeholder='Enter Name' className='border-2 outline-none px-2 rounded' />
-        </div>
-        <div className="flex justify-between m-4">
-          <label htmlFor="email" className='mr-2 font-semibold text-xl text-[#fff]'>Email</label>
-          <input type="email" id='email' value={user.email} onChange={(e) => setUser({ ...user, email: e.target.value })} placeholder='Enter email' className='border-2 outline-none px-2 rounded' />
-        </div>
-        <div className="flex justify-between m-4">
-          <label htmlFor="password" className='mr-2 font-semibold text-xl text-[#fff]'>Password</label>
-          <input type="password" id='password' value={user.password} onChange={(e) => setUser({ ...user, password: e.target.value })} placeholder='Enter password' className='border-2 outline-none px-2 rounded' />
-        </div>
-        <p className="text-center mt-2 text-[#fff]">Already have Account &nbsp;
+    <div className='flex justify-center mt-8'>
+      <div className="shadow-md w-1/3 p-16 bg-gray-300 rounded-xl">
+        <h1 className='text-2xl text-center font-bold mb-10'>Create Account</h1>
+          <input type="text" id='name' value={user.name} onChange={(e) => setUser({ ...user, name: e.target.value })} placeholder='Enter Name' className='px-2 rounded text-[14px] w-full h-8 focus:ring-2 focus:ring-[#db2777] outline-none' />
+
+          <input type="email" id='email' value={user.email} onChange={(e) => setUser({ ...user, email: e.target.value })} placeholder='Enter email' className='px-2 mt-6 rounded text-[14px] w-full h-8 focus:ring-2 focus:ring-[#db2777] outline-none' />
+          <input type="password" id='password' value={user.password} onChange={(e) => setUser({ ...user, password: e.target.value })} placeholder='Enter password' className='px-2 mt-6 rounded text-[14px] w-full h-8 focus:ring-2 focus:ring-[#db2777] outline-none' />
+        <p className="text-center mt-6 font-Poppins">Already have Account &nbsp;
           <Link href='/login'>
-            <span className='text-blue-400'>Login</span>
+            <span className='text-[#db2777] font-Poppins'>Login</span>
           </Link>
         </p>
-        <button onClick={handleSignUp} className='w-full mt-1 bg-[#2c2c54] hover:bg-[#fff] hover:text-black text-[#fff] font-bold px-2 py-1 max-w-md rounded'>Signup</button>
+        <button onClick={handleSignUp} className='w-full mt-6 h-10 px-2 py-1 font-bold hover:text-[#db2777] bg-[#db2777] text-white hover:bg-white rounded'>Signup</button>
 
 
 
       </div>
-
-
     </div>
   )
 }

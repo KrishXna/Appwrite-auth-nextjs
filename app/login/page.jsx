@@ -35,68 +35,54 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center py-10">
-      <div className="shadow-md p-16 max-w-xl bg-[#40407a] rounded-xl">
-        <h1 className="text-2xl text-white text-center mb-10">
+    <div className="flex justify-center mt-8">
+      <div className="shadow-md w-1/3 p-16 bg-gray-300 rounded-xl">
+        <h1 className="text-2xl font-Helvetica font-bold text-center mb-10">
           Login with AppWrite
         </h1>
-
-        <div className="flex justify-between m-4">
-          <label
-            htmlFor="email"
-            className="mr-2 font-semibold text-xl text-[#fff]"
-          >
-            Email
-          </label>
-          <input
+        <input
             type="email"
             id="email"
             value={user.email}
             onChange={(e) => setUser({ ...user, email: e.target.value })}
-            placeholder="Enter email"
-            className="border-2 outline-none px-2 rounded"
+            placeholder="Enter Your Email"
+            className="px-2 rounded text-[14px] w-full h-8 focus:ring-2 focus:ring-[#db2777] outline-none"
           />
-        </div>
-        <div className="flex justify-between m-4">
-          <label
-            htmlFor="password"
-            className="mr-2 font-semibold text-xl text-[#fff]"
-          >
-            Password
-          </label>
           <input
             type="password"
             id="password"
             value={user.password}
             onChange={(e) => setUser({ ...user, password: e.target.value })}
             placeholder="Enter password"
-            className="border-2 outline-none px-2 rounded"
+            className="px-2 rounded text-[14px] w-full h-8 mt-6 focus:ring-2 focus:ring-[#db2777] outline-none"
           />
-        </div>
-        <p className="text-center text-[#fff]">
+        <p className="text-center text-[#000] font-Poppins mt-6">
           Don't have an account?&nbsp;
           <Link href="/signup">
-            <span className="text-blue-400">Sign Up</span>
+            <span className="text-[#db2777] font-Poppins">Sign Up</span>
           </Link>
         </p>
-        <div className="mt-2 text-center">
+        <div className="mt-6 text-center">
           <button
             onClick={() => handleLogin(user.email, user.password)}
-            className="w-full text-[#fff] font-bold px-2 py-1 bg-[#2c2c54] hover:bg-white hover:text-black rounded"
+            className="w-full h-10 px-2 py-1 font-bold hover:text-[#db2777] bg-[#db2777] text-white hover:bg-white rounded"
           >
             Login
           </button>
-            <button
+            
+        </div>
+        <button
               onClick={loginWithGoogle}
-              className="relative w-full hover:bg-[#2c2c54]  text-[#000] font-bold px-2 py-1 mt-4 bg-[#fff] hover:text-white rounded"
-            >
-            <Image src='/G.png' width={20} height={20} className="absolute left-20 top-2" />
+              className="relative w-full font-bold h-10 hover:text-[#db2777] px-2 py-1 mt-6 bg-[#fff] rounded"
+              >
+            <Image src='/G.png' width={20} height={20} className="absolute left-12 top-[10px]" />
               Login with Google
             </button>
-        </div>
-      </div>
+              </div>
     </div>
   );
 };
 
 export default Login;
+
+

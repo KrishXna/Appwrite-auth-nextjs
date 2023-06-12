@@ -33,14 +33,14 @@ const Profile = () => {
 
     return (
         <>
-            <div className="flex justify-center py-10 text-white">
+            <div className="flex justify-center py-10">
                 {user ? (
-                    <div className="shadow-md p-16 max-w-xl bg-[#40407a] rounded-xl">
-                        <h1 className="text-2xl text-white text-center mb-10">
+                    <div className="shadow-md w-1/3 p-16 bg-gray-300 rounded-xl">
+                        <h1 className="text-2xl text-center font-bold mb-10">
                             User Details
                         </h1>
                         {user && (
-                            <ul>
+                            <ul className="font-Poppins">
                                 <li>User Name: {user?.name.toUpperCase()}</li>
                                 <li>User Email: {user?.email}</li>
                                 <li>UserId: {user?.$id}</li>
@@ -50,7 +50,7 @@ const Profile = () => {
 
                         <button
                             onClick={handleLogout}
-                            className="mt-4 bg-[#2c2c54] hover:bg-white hover:text-black text-[#fff] font-bold px-2 py-1 rounded"
+                            className="mt-5 ms-4 hover:text-[#db2777] bg-[#db2777] text-white hover:bg-white font-bold px-2 py-1 rounded"
                         >
                             Logout
                         </button>
@@ -61,14 +61,14 @@ const Profile = () => {
                         <div>
                             <Link href='/login'>
                                 <button
-                                    className="mt-5 bg-[#40407a] hover:bg-white hover:text-black font-bold px-2 py-1 rounded"
+                                    className="mt-5 ms-4 bg-[#db2777] text-white font-bold px-2 py-1 rounded"
                                 >
                                     Login
                                 </button>
                             </Link>
                             <Link href='/signup'>
                                 <button
-                                    className="mt-5 ms-4 bg-[#40407a] hover:bg-white hover:text-black font-bold px-2 py-1 rounded"
+                                    className="mt-5 ms-4 bg-[#db2777] text-white font-bold px-2 py-1 rounded"
                                 >
                                     Signup
                                 </button>
