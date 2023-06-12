@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { account } from "../../Appwrite/appwriteConfig";
+import Image from "next/image";
+
 
 const Login = () => {
   const [user, setUser] = useState({
@@ -12,10 +14,11 @@ const Login = () => {
   const handleLogin = async () => {
     try {
       const res = await account.createEmailSession(user.email, user.password);
+      window.location.href = "/"
       console.log(res);
-      window.location.href = "/";
     } catch (error) {
       console.log(error);
+
     }
   };
 
@@ -25,7 +28,7 @@ const Login = () => {
         "google",
         "http://localhost:3000",
         "http://localhost:3000/login");
-      console.log(res);
+      // console.log(res);
     } catch (error) {
       console.log(error);
     }
@@ -77,18 +80,19 @@ const Login = () => {
           </Link>
         </p>
         <div className="mt-2 text-center">
-        <button
-          onClick={handleLogin}
-          className="w-full bg-[#2c2c54] hover:bg-white hover:text-black text-[#fff] font-bold px-2 py-1 max-w-md rounded"
-        >
-          Login
-        </button>
-        <button
-          onClick={loginWithGoogle}
-          className="w-full hover:bg-[#2c2c54]  hover:text-white bg-[#fff] text-[#000] font-bold px-2 py-1 mt-4 rounded"
-        >
-          Login with Google
-        </button>
+          <button
+            onClick={() => handleLogin(user.email, user.password)}
+            className="w-full text-[#fff] font-bold px-2 py-1 bg-[#2c2c54] hover:bg-white hover:text-black rounded"
+          >
+            Login
+          </button>
+            <button
+              onClick={loginWithGoogle}
+              className="relative w-full hover:bg-[#2c2c54]  text-[#000] font-bold px-2 py-1 mt-4 bg-[#fff] hover:text-white rounded"
+            >
+            <Image src='/G.png' width={20} height={20} className="absolute left-20 top-2" />
+              Login with Google
+            </button>
         </div>
       </div>
     </div>
