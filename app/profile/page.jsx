@@ -47,7 +47,6 @@ const Profile = () => {
                                 <li>Created: {new Date(user.$createdAt).toDateString()}</li>
                             </ul>
                         )}
-
                         <button
                             onClick={handleLogout}
                             className="mt-5 ms-4 hover:text-[#db2777] bg-[#db2777] text-white hover:bg-white font-bold px-2 py-1 rounded"

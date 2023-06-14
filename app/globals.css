@@ -3,10 +3,35 @@
 @tailwind utilities;
 
 body{
-    /* background:linear-gradient(to right, #6d28d9, #db2777); */
     background: #fff;
 }
+@font-face {
+    font-weight: 700;
+    font-family: 'Helvetica';
+    src: url('../font/Helvetica-Bold.ttf');
+  }
 
-/* box-gray *
-/* font-helvetica -heading*/
-/* font- Poppins -para-*/
+  @font-face {
+    font-weight: 700;
+    font-style: italic;
+    font-family: 'Helvetica';
+    src: url('../font/Helvetica-BoldOblique.ttf');
+  }
+
+  @font-face {
+    font-weight: 400;
+    font-family: Helvetica;
+    src: url('../font/helvetica-light-587ebe5a59211.ttf');
+  }
+  @font-face {
+    font-weight: 600;
+    font-family: 'Kablammo';
+    src: url('../font/Kablammo-Regular-VariableFont_MORF.ttf');
+  }
+
+h1{
+    font-family: 'Helvetica';
+}
+.svg{
+    color: red
+}

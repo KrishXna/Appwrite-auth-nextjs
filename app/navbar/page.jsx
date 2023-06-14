@@ -1,10 +1,17 @@
-"use client"
-import React, { useEffect } from "react";
+import React from "react";
 import Link from "next/link";
 import Image from 'next/image';
 import { account } from "@/Appwrite/appwriteConfig";
+
 const Navbar = () => {
-    let data = Object.values(JSON.parse(localStorage.getItem("cookieFallback")))[0];
+
+    let data;
+
+    try {
+        data = localStorage ? Object.values(JSON.parse(localStorage.getItem("cookieFallback")))[0] : undefined;
+    } catch(e) {
+        data = undefined
+    }
     
     const handleLogout = async ()=>{
         const res = await account.deleteSession('current');
@@ -28,13 +35,13 @@ const Navbar = () => {
                     </Link>
                     <ul className="flex">
                         <Link href="/login">
-                            <li className="ms-8 cursor-pointer font-bold text-xl font-Helvetica">Login</li>
+                            <li className="ms-8 cursor-pointer font-bold text-xl"><h1>Login</h1></li>
                         </Link>
                         <Link href="/signup">
-                            <li className="ms-8 cursor-pointe font-bold text-xl font-Helvetica">Signup</li>
+                            <li className="ms-8 cursor-pointe font-bold text-xl"><h1>Signup</h1></li>
                         </Link>
                         <Link href="/profile">
-                            <li className="ms-8 cursor-pointer font-bold text-xl font-Helvetica">Profile</li>
+                            <li className="ms-8 cursor-pointer font-bold text-xl"><h1>Profile</h1></li>
                         </Link>
                     </ul>
                 </div>
