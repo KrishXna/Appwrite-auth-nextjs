@@ -3,10 +3,10 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { account } from "../../Appwrite/appwriteConfig";
 import Image from "next/image";
-import {router }from "next/navigation";
-
+import { useRouter } from 'next/navigation'
 
 const Login = () => {
+  const router = useRouter()
   const [user, setUser] = useState({
     email: "",
     password: ""
@@ -15,8 +15,8 @@ const Login = () => {
   const handleLogin = async () => {
     try {
       const res = await account.createEmailSession(user.email, user.password);
-      window.location.href = "/"
-      // console.log(res);
+      router.push('/profile')
+      console.log(res,"loginuser");
     } catch (error) {
       console.log(error);
 
@@ -30,6 +30,7 @@ const Login = () => {
         "http://localhost:3000",
         "http://localhost:3000/login");
       // console.log(res);
+      router.push('/profile')
     } catch (error) {
       console.log(error);
     }

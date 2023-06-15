@@ -4,8 +4,10 @@ import Link from 'next/link'
 import Image from 'next/image'
 // import { handleSignUp } from '@/api/signup'
 import { account } from '@/Appwrite/appwriteConfig'
+import { useRouter } from 'next/navigation'
 
 const Signup = () => {
+  const router = useRouter()
 
    const [user, setUser] = useState({
     name: "",
@@ -20,9 +22,8 @@ const Signup = () => {
         user.password,
         user.name
       )
-      setUser("")
       alert("Account Created Successfully")
-      window.location.href="/login"
+      router.push('/login')
         console.log(res);
     } catch (error) {
       console.log(error);
