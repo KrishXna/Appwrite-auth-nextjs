@@ -1,7 +1,8 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
-import Navbar from './navbar/page'
+import Navbar from '@/components/navbar/page'
 const inter = Inter({ subsets: ['latin'] })
+import { Suspense } from 'react'
 
 export const metadata = {
   title: 'Appwrite Auth',
@@ -12,7 +13,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
+      <Suspense fallback={<p>Loading </p>}>
         <Navbar />
+      </Suspense>
         {children}
       </body>
     </html>

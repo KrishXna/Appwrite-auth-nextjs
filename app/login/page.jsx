@@ -16,7 +16,7 @@ const Login = () => {
     try {
       const res = await account.createEmailSession(user.email, user.password);
       router.push('/profile')
-      console.log(res,"loginuser");
+      // console.log(res,"loginuser");
     } catch (error) {
       console.log(error);
 
