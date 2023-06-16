@@ -4,13 +4,14 @@ import React,{useEffect, useState} from "react";
 import Link from "next/link";
 import { account } from "../../Appwrite/appwriteConfig";
 import Image from "next/image";
+import { useUserContext } from "@/context/authContext";
 
 const Profile = () => {
-    const [user, setUser] = useState();
+  const { userData, setUserData } = useUserContext();
 
   const getUser = async () => {
     const res = await account.get()
-    setUser(res)
+    setUserData(res)
   }
 
   useEffect(()=> {
@@ -20,7 +21,7 @@ const Profile = () => {
     <>
 
       <div className="flex justify-center py-10">
-        {user ? (
+        {userData ? (
           <div className="relative mx-auto">
             <div className="flex justify-center">
               <Image src="/4471124-02.svg" alt="profile-card" width={400} height={570} />
@@ -38,17 +39,17 @@ const Profile = () => {
             <div className="absolute top-[250px] left-1/2 -translate-x-1/2 w-[70%]">
               <div>
                 <h1 className="text-3xl mb-6 text-center">
-                  {user?.name.toUpperCase()}
+                  {userData?.name}
                 </h1>
                 <table>
                   <tbody>
                     <tr>
                       <td className="p-2 text-[#db2777] font-bold">ID</td>
-                      <td>{user?.$id}</td>
+                      <td>{userData?.$id}</td>
                     </tr>
                     <tr>
                       <td className="p-2 text-[#db2777] font-bold">EMAIL</td>
-                      <td>{user?.email}</td>
+                      <td>{userData?.email}</td>
                     </tr>
                   </tbody>
                 </table>
