@@ -8,7 +8,7 @@ import {useUserContext} from "@/context/authContext";
 
 const Login = () => {
   const { userData,setUserData } = useUserContext();
-  console.log(userData,11);
+  // console.log(userData);
   const router = useRouter();
   const [user, setUser] = useState({
     email: "",
@@ -18,9 +18,9 @@ const Login = () => {
   const handleLogin = async () => {
     try {
       const res = await account.createEmailSession(user.email, user.password);
-      setUserData(res)
       router.push("/profile");
-      console.log(res,"loginuser");
+      setUserData(res)
+      // console.log(res,"loginuser");
     } catch (error) {
       console.log(error);
     }
@@ -33,8 +33,9 @@ const Login = () => {
         "http://localhost:3000",
         "http://localhost:3000/login"
       );
-      // console.log(res);
       router.push("/profile");
+      setUserData(res)
+      // console.log(res);
     } catch (error) {
       console.log(error);
     }
@@ -49,7 +50,7 @@ const Login = () => {
         <div className="relative">
           <Image
             src="/envelope-solid.svg"
-            alt="User Logo"
+            alt="email icon"
             width={16}
             height={12}
             className="absolute top-9 left-2"
@@ -67,10 +68,10 @@ const Login = () => {
         <div className="relative">
           <Image
             src="/lock-solid.svg"
-            alt="User Logo"
+            alt="password icon"
             width={14}
             height={12}
-            className="absolute top-[60px] left-2"
+            className="absolute top-[45px] left-2"
           />{" "}
           &nbsp;
           <input
@@ -79,7 +80,7 @@ const Login = () => {
             value={user.password}
             onChange={(e) => setUser({ ...user, password: e.target.value })}
             placeholder="Enter password"
-            className="px-8 rounded text-[14px] w-full h-10 mt-6 focus:ring-2 focus:ring-[#db2777] outline-none"
+            className="px-8 rounded text-[14px] w-full h-10 mt-2 focus:ring-2 focus:ring-[#db2777] outline-none"
           />
         </div>
         <p className="text-center text-[#000] font-Poppins mt-6">

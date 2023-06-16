@@ -7,17 +7,15 @@ import {useUserContext} from "@/context/authContext";
 
 const Navbar = () => {
   const { userData,setUserData } = useUserContext();
-  console.log(userData,"navbar");
   const router = useRouter();
 
   const handleLogout = async () => {
     const res = await account.deleteSession("current");
     setUserData(null)
     router.push("/login");
-    console.log("User Logout");
+    // console.log("User Logout");
   };
-
-
+  
   return (
     <div className="w-full h-16  text-[#db2777] p-4">
       <div className="flex justify-between items-center">

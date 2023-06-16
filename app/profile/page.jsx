@@ -1,30 +1,33 @@
-"use client"
-import React,{useEffect, useState} from "react";
-// import { getUser } from "@/api/getUser";
+"use client";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { account } from "../../Appwrite/appwriteConfig";
 import Image from "next/image";
 import { useUserContext } from "@/context/authContext";
 
-const Profile = () => {
+const Profile = async () => {
   const { userData, setUserData } = useUserContext();
 
   const getUser = async () => {
-    const res = await account.get()
-    setUserData(res)
-  }
+    const res = await account.get();
+    setUserData(res);
+  };
 
-  useEffect(()=> {
-    getUser()
-  },[])
+  useEffect(() => {
+    getUser();
+  }, []);
   return (
     <>
-
       <div className="flex justify-center py-10">
         {userData ? (
           <div className="relative mx-auto">
             <div className="flex justify-center">
-              <Image src="/4471124-02.svg" alt="profile-card" width={400} height={570} />
+              <Image
+                src="/4471124-02.svg"
+                alt="profile card"
+                width={400}
+                height={570}
+              />
 
               <h1 className="absolute top-6 right-10 text-2xl text-[#fff]">
                 app<span className="font-bold">write</span>
@@ -38,9 +41,7 @@ const Profile = () => {
             </div>
             <div className="absolute top-[250px] left-1/2 -translate-x-1/2 w-[70%]">
               <div>
-                <h1 className="text-3xl mb-6 text-center">
-                  {userData?.name}
-                </h1>
+                <h1 className="text-3xl mb-6 text-center">{userData?.name}</h1>
                 <table>
                   <tbody>
                     <tr>
@@ -56,7 +57,7 @@ const Profile = () => {
                 <div className="flex justify-center mt-5">
                   <Image
                     src="/linkedin.svg"
-                    alt="User Logo"
+                    alt="linkedin"
                     width={22}
                     height={22}
                     className=""
@@ -64,7 +65,7 @@ const Profile = () => {
                   &nbsp;
                   <Image
                     src="/square-facebook.svg"
-                    alt="User Logo"
+                    alt="fb"
                     width={22}
                     height={22}
                     className="ms-6"
@@ -72,7 +73,7 @@ const Profile = () => {
                   &nbsp;
                   <Image
                     src="/square-instagram.svg"
-                    alt="User Logo"
+                    alt="insta"
                     width={22}
                     height={22}
                     className="ms-6"

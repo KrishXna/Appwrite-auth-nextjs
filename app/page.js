@@ -1,11 +1,9 @@
-import Signup from "./signup/page"
 import Profile from "./profile/page"
 
-export default function Home() {
+export default async function Home() {
   return (
     <>
-<Profile/>
+      <Profile/>
     </>
   )
 }
-``
