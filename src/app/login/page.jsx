@@ -4,6 +4,7 @@ import Image from "next/image";
 import { account } from "@/appwrite/appwriteconfig";
 import { useRouter } from "next/navigation";
 import { useCookies } from "react-cookie";
+import jwt_decode from "jwt-decode";
 
 const Login = () => {
   const [, setCookie] = useCookies(["user"]);
@@ -23,17 +24,23 @@ const Login = () => {
   };
 
   const loginWithGoogle = async () => {
-    const res = await account.createOAuth2Session(
+    const res = account.createOAuth2Session(
       "google",
       "http://localhost:3000",
       "http://localhost:3000/login"
     );
-    router.push("/dashboard");
-    setCookie("user", JSON.stringify(res), {
+    const token = await account.createJWT();
+    const decoded = jwt_decode(token.jwt);
+
+    const userData = await account.getSession(decoded.sessionId);
+
+    setCookie("user", JSON.stringify(userData), {
       path: "/",
       maxAge: 3600,
       sameSite: true,
     });
+
+    router.push("/dashboard");
   };
 
   return (

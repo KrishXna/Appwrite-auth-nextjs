@@ -4,6 +4,7 @@ import Image from "next/image";
 import Logout from "../component/logout";
 export default async function Dashboard() {
   let data = cookies().get("user");
+  console.log(data.value);
   const userData = JSON.parse(data.value);
 
 
@@ -53,7 +54,8 @@ export default async function Dashboard() {
                 </table>
                 {/* logout Btn */}
                 <Logout />
-                <div className="flex justify-center mt-5">
+                {/* Social Icons */}
+                {/* <div className="flex justify-center mt-5 mb-4">
                   <Image
                     src="/linkedin.svg"
                     alt="linkedin"
@@ -78,7 +80,8 @@ export default async function Dashboard() {
                     className="ms-6"
                   />{" "}
                   &nbsp;
-                </div>
+                </div> */}
+                
               </div>
             </div>
           </div>
