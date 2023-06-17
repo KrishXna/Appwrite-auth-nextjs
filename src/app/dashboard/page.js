@@ -1,8 +1,7 @@
 import { cookies } from "next/headers";
 import { useRouter } from 'next/navigation';
 import Image from "next/image";
-import Logout from "@/component/logout";
-
+import Logout from "../component/logout";
 export default async function Dashboard() {
   let data = cookies().get("user");
   const userData = JSON.parse(data.value);

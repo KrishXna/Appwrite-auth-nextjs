@@ -38,7 +38,7 @@ const Login = () => {
 
   return (
     <div className="flex justify-center text-black mt-8">
-      <div className="shadow-md w-1/3 p-16 bg-gray-300 rounded-xl">
+      <div className="shadow-md w-[450px] p-16 bg-gray-300 rounded-xl">
         <h1 className="text-2xl font-bold text-center mb-10">
           Login with AppWrite
         </h1>

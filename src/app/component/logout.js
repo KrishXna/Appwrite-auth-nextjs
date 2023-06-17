@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 export default function Logout(){
     const [cookies, setCookie, removeCookie] = useCookies(['user']);
     const router = useRouter()
+    
     async function handleLogout(e){
       e.preventDefault()
       removeCookie("user", {

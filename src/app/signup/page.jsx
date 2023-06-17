@@ -20,7 +20,7 @@ async function handleSignUp(e) {
 const Signup = () => {
   return (
     <div className="flex justify-center text-black mt-8">
-      <div className="shadow-md w-1/3 p-16 bg-gray-300 rounded-xl">
+      <div className="shadow-md w-[450px] p-16 bg-gray-300 rounded-xl">
         <h1 className="text-2xl text-center font-bold mb-10">Create Account</h1>
         <form onSubmit={handleSignUp}>
           <div className="relative">
