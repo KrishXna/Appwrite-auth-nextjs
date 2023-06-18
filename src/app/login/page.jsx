@@ -7,8 +7,10 @@ import { useCookies } from "react-cookie";
 import jwt_decode from "jwt-decode";
 
 const Login = () => {
-  const [, setCookie] = useCookies(["user"]);
   const router = useRouter();
+  const [, setCookie] = useCookies(["user"]);
+
+  // Login
   const handleLogin = async (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -23,6 +25,7 @@ const Login = () => {
     });
   };
 
+  // Login With Google
   const loginWithGoogle = async () => {
     const res = account.createOAuth2Session(
       "google",
@@ -33,13 +36,13 @@ const Login = () => {
     const decoded = jwt_decode(token.jwt);
 
     const userData = await account.getSession(decoded.sessionId);
+    // console.log(userData, "40");
 
     setCookie("user", JSON.stringify(userData), {
       path: "/",
       maxAge: 3600,
       sameSite: true,
     });
-
     router.push("/dashboard");
   };
 
@@ -49,10 +52,7 @@ const Login = () => {
         <h1 className="text-2xl font-bold text-center mb-10">
           Login with AppWrite
         </h1>
-        <form
-          onSubmit={handleLogin}
-          encType="application/x-www-form-urlencoded"
-        >
+        <form onSubmit={handleLogin}>
           <div className="relative">
             <Image
               src="/envelope-solid.svg"
@@ -76,7 +76,7 @@ const Login = () => {
               alt="password icon"
               width={14}
               height={12}
-              className="absolute top-[45px] left-2"
+              className="absolute top-[43px] left-2"
             />{" "}
             &nbsp;
             <input
@@ -87,7 +87,7 @@ const Login = () => {
               className="px-8 rounded text-[14px] w-full h-10 mt-2 focus:ring-2 focus:ring-[#db2777] outline-none"
             />
           </div>
-          <p className="text-center text-[#000] font-Poppins mt-6">
+          <p className="text-center text-[#868181] font-Poppins mt-6">
             Don't have an account?&nbsp;
             <Link href="/signup">
               <span className="text-[#db2777] font-Poppins">Sign Up</span>
@@ -109,7 +109,7 @@ const Login = () => {
               src="/G.png"
               width={20}
               height={20}
-              className="absolute left-16 top-[13px]"
+              className="absolute left-12 top-[14px]"
             />
             Login with Google
           </button>

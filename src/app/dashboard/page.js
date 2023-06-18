@@ -1,12 +1,15 @@
 import { cookies } from "next/headers";
-import { useRouter } from 'next/navigation';
 import Image from "next/image";
+import Link from "next/link";
 import Logout from "../component/logout";
 export default async function Dashboard() {
   let data = cookies().get("user");
-  console.log(data.value);
-  const userData = JSON.parse(data.value);
+  // console.log(data.value,"7");
+  let userData = null; // Initialize userData with a default value
 
+  if (data) {
+    userData = JSON.parse(data.value);
+  }
 
   return (
     <>
@@ -33,7 +36,6 @@ export default async function Dashboard() {
             </div>
             <div className="absolute top-[250px] left-1/2 -translate-x-1/2 w-[70%]">
               <div>
-                {/* <h1 className="text-3xl mb-6 text-center">{data.name}</h1> */}
                 <table>
                   <tbody>
                     <tr>
@@ -54,7 +56,7 @@ export default async function Dashboard() {
                 </table>
                 {/* logout Btn */}
                 <Logout />
-                {/* Social Icons */}
+                {/* Social media icons */}
                 {/* <div className="flex justify-center mt-5 mb-4">
                   <Image
                     src="/linkedin.svg"
@@ -87,7 +89,15 @@ export default async function Dashboard() {
           </div>
         </div>
       ) : (
-        <h1>Session Expired. Login again !</h1>
+        <div className="flex justify-center items-center h-[40vh]">
+          <h1>Session Expired. Login again !</h1> 
+            <Link href='/login'>
+            <button
+                    className="ms-4 bg-[#db2777] text-white px-2 py-1 hover:bg-white hover:text-[#db2777] font-bold rounded">
+                    Login
+            </button>
+            </Link>
+        </div>
       )}
     </>
   );

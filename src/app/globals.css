@@ -2,26 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+body{
+    background: #000;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@font-face {
+    font-weight: 700;
+    font-family: 'Helvetica';
+    src: url('../app/font/Helvetica-Bold.ttf');
   }
-}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  @font-face {
+    font-weight: 700;
+    font-style: italic;
+    font-family: 'Helvetica';
+    src: url('../app/font/Helvetica-BoldOblique.ttf');
+  }
+
+  @font-face {
+    font-weight: 400;
+    font-family: Helvetica;
+    src: url('../app/font/helvetica-light-587ebe5a59211.ttf');
+  }
+
+h1{
+    font-family: 'Helvetica';
+    color: #db2777;
+}
+.svg{
+    color: red
 }

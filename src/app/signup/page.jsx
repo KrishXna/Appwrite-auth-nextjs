@@ -63,7 +63,7 @@ const Signup = () => {
               alt="password icon"
               width={14}
               height={12}
-              className="absolute top-[45px] left-2"
+              className="absolute top-[43px] left-2"
             />{" "}
             &nbsp;
             <input
@@ -74,7 +74,7 @@ const Signup = () => {
               className="px-8 mt-2 rounded text-[14px] w-full h-10 focus:ring-2 focus:ring-[#db2777] outline-none"
             />
           </div>
-          <p className="text-center mt-6 font-Poppins">
+          <p className="text-center text-[#868181] mt-6 font-Poppins">
             Already have an account? &nbsp;
             <Link href="/login">
               <span className="text-[#db2777] font-Poppins">Login</span>
