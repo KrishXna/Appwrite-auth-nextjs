@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { account } from "@/appwrite/appwriteconfig";
 
 export default function Logout(){
-    const [removeCookie] = useCookies(['user']);
+    const [cookies, setCookie, removeCookie] = useCookies(['user']);
     const router = useRouter()
 
     const userLogout = async() => {

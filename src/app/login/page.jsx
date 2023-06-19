@@ -29,21 +29,21 @@ const Login = () => {
   const loginWithGoogle = async () => {
     const res = account.createOAuth2Session(
       "google",
-      "http://localhost:3000",
+      "http://localhost:3000/dashboard",
       "http://localhost:3000/login"
     );
+    console.log(res, "35");
     const token = await account.createJWT();
     const decoded = jwt_decode(token.jwt);
 
     const userData = await account.getSession(decoded.sessionId);
-    // console.log(userData, "40");
 
     setCookie("user", JSON.stringify(userData), {
       path: "/",
       maxAge: 3600,
       sameSite: true,
     });
-    router.push("/dashboard");
+    // router.push("/dashboard");
   };
 
   return (
@@ -109,7 +109,7 @@ const Login = () => {
               src="/G.png"
               width={20}
               height={20}
-              className="absolute left-12 top-[14px]"
+              className="absolute sm:left-12 left-4 top-[14px]"
             />
             Login with Google
           </button>

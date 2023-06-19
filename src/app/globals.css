@@ -8,20 +8,20 @@ body{
 @font-face {
     font-weight: 700;
     font-family: 'Helvetica';
-    src: url('../app/font/Helvetica-Bold.ttf');
+    src: url('../font/Helvetica-Bold.ttf');
   }
 
   @font-face {
     font-weight: 700;
     font-style: italic;
     font-family: 'Helvetica';
-    src: url('../app/font/Helvetica-BoldOblique.ttf');
+    src: url('../font/Helvetica-BoldOblique.ttf');
   }
 
   @font-face {
     font-weight: 400;
     font-family: Helvetica;
-    src: url('../app/font/helvetica-light-587ebe5a59211.ttf');
+    src: url('../font/helvetica-light-587ebe5a59211.ttf');
   }
 
 h1{

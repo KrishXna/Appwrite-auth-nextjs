@@ -1,19 +1,19 @@
 import { cookies } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
-import Logout from "../component/logout";
+import Logout from "@/component/logout";
+
 export default async function Dashboard() {
   let data = cookies().get("user");
-  // console.log(data.value,"7");
-  let userData = null; // Initialize userData with a default value
-
+  // console.log(data.value,"8");
+  let userData = null;
   if (data) {
     userData = JSON.parse(data.value);
   }
 
   return (
     <>
-      {data && data ? (
+      { data ? (
         <div className="flex justify-center py-10">
           <div className="relative mx-auto">
             <div className="flex justify-center">
@@ -28,36 +28,33 @@ export default async function Dashboard() {
                 app<span className="font-bold">write</span>
               </h1>
 
-              <img
+              <Image
                 className="h-36 w-36 rounded-full absolute top-20"
                 src="https://overreacted.io/static/profile-pic-c715447ce38098828758e525a1128b87.jpg"
                 alt="Dan_Abromov"
               />
             </div>
             <div className="absolute top-[250px] left-1/2 -translate-x-1/2 w-[70%]">
-              <div>
                 <table>
                   <tbody>
                     <tr>
                       <td className="p-2 text-[#db2777] font-bold">ID</td>
-                      <td>{userData?.$id}</td>
+                      <td className="text-white">{userData?.$id}</td>
                     </tr>
                     <tr>
                       <td className="p-2 text-[#db2777] font-bold">EMAIL</td>
-                      <td>{userData?.providerUid}</td>
+                      <td className="text-white">{userData?.providerUid}</td>
                     </tr>
                     <tr>
                       <td className="p-2 text-[#db2777] font-bold">
                         CreatedAt
                       </td>
-                      <td>{new Date(userData?.$createdAt).toDateString()}</td>
+                      <td className="text-white">{new Date(userData?.$createdAt).toDateString()}</td>
                     </tr>
                   </tbody>
                 </table>
-                {/* logout Btn */}
-                <Logout />
                 {/* Social media icons */}
-                {/* <div className="flex justify-center mt-5 mb-4">
+                <div className="flex justify-center mt-4 mb-7">
                   <Image
                     src="/linkedin.svg"
                     alt="linkedin"
@@ -82,15 +79,15 @@ export default async function Dashboard() {
                     className="ms-6"
                   />{" "}
                   &nbsp;
-                </div> */}
-                
-              </div>
+                </div>
+                {/* logout Btn */}
+                <Logout />
             </div>
           </div>
         </div>
       ) : (
         <div className="flex justify-center items-center h-[40vh]">
-          <h1>Session Expired. Login again !</h1> 
+          <h1 className="text-white">Session Expired. Login again !</h1> 
             <Link href='/login'>
             <button
                     className="ms-4 bg-[#db2777] text-white px-2 py-1 hover:bg-white hover:text-[#db2777] font-bold rounded">
